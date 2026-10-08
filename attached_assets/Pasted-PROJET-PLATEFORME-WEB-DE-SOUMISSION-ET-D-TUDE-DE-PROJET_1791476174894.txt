@@ -1,0 +1,541 @@
+PROJET : PLATEFORME WEB DE SOUMISSION ET D’ÉTUDE DE PROJETS
+1. CONTEXTE DU PROJET
+Je souhaite développer une plateforme web professionnelle (FONDATION DANGOTE) permettant à des entrepreneurs, porteurs de projets, petites entreprises et particuliers de soumettre un projet dans le cadre d’un programme d’accompagnement ou de financement.
+La plateforme doit permettre :
+•	de présenter clairement le programme ;
+•	d’expliquer les critères d’éligibilité ;
+•	de permettre à un candidat de créer une candidature ;
+•	de collecter toutes les informations nécessaires sur le candidat ;
+•	de collecter toutes les informations nécessaires sur son projet ;
+•	de collecter les informations financières du projet ;
+•	d'attribuer automatiquement un numéro unique à chaque dossier ;
+•	d’enregistrer toutes les données dans une base MySQL ;
+•	de rediriger le candidat vers WhatsApp après la soumission afin qu’il puisse obtenir de l’assistance ou poursuivre les échanges ;
+•	de permettre au candidat de suivre l’état de sa candidature ;
+•	de fournir un espace d’administration complet permettant de gérer les candidatures, les candidats, les projets, les témoignages et les statistiques.
+IMPORTANT :
+Ne jamais promettre automatiquement qu’un candidat recevra un financement.
+Utiliser une formulation professionnelle telle que :
+« Soumettre votre projet »
+« Votre candidature sera étudiée selon les critères du programme »
+et non :
+« Obtenez automatiquement votre financement ».
+Le site doit être crédible, moderne, professionnel, rassurant.
+________________________________________
+2. TECHNOLOGIES OBLIGATOIRES
+Développer le projet avec :
+•	HTML5
+•	CSS3
+•	PHP
+•	MySQL
+•	Bootstrap 5
+•	JavaScript
+•	AJAX lorsque nécessaire
+•	Bootstrap Icons ou Font Awesome
+•	PDO pour les interactions MySQL
+Le projet doit être compatible avec un hébergement mutualisé Hostinger.
+Le projet doit pouvoir fonctionner dans un environnement classique :
+PHP + MySQL + Apache.
+________________________________________
+3. PRINCIPES DE DÉVELOPPEMENT
+•	Le site doit être en Français/Anglais (Bouton de Traduction Français/Anglais(Site en Français de base))
+•	Responsive mobile-first ;
+•	sécurisé ;
+•	Utilise toujours des icones au lieu des emojis
+Ne pas mettre tout le code dans un seul fichier.
+________________________________________
+4. IDENTITÉ VISUELLE
+Le design va s’inspirer de l’univers visuel des grandes fondations(DANGOTE) je t’envoi le template en image
+Prévoir :
+•	grandes images ;
+•	sections aérées ;
+•	cartes modernes ;
+•	statistiques ;
+•	icônes ;
+•	boutons bien visibles ;
+•	animations légères ;
+•	effets hover ;
+•	transitions CSS sobres.
+Éviter :
+•	design trop chargé ;
+•	animations excessives ;
+•	trop de couleurs ;
+•	emojis dans l’interface professionnelle.
+________________________________________
+5. PAGE D’ACCUEIL
+Créer une page d’accueil professionnelle avec les sections suivantes.
+Hero
+Titre :
+« Donnons vie aux projets qui construisent l’avenir »
+Sous-titre :
+« Vous avez un projet ou une activité que vous souhaitez développer ? Découvrez notre programme d’accompagnement et soumettez votre candidature. »
+Boutons :
+•	Soumettre mon projet
+•	Découvrir le programme
+________________________________________
+Section statistiques
+Afficher des statistiques fictives.
+Exemple :
+•	projets reçus ;
+•	projets étudiés ;
+•	secteurs concernés ;
+•	pays couverts.
+________________________________________
+Section « À propos »
+Présenter brièvement la mission du programme.
+Expliquer :
+•	l’accompagnement entrepreneurial ;
+•	le développement économique ;
+•	la création d’emplois ;
+•	l’innovation ;
+•	l’autonomisation ;
+•	le soutien aux initiatives locales.
+________________________________________
+Section « Nos domaines »
+Présenter plusieurs secteurs :
+•	Agriculture
+•	Élevage
+•	Commerce
+•	Technologie
+•	Industrie
+•	Transformation
+•	Artisanat
+•	Éducation
+•	Santé
+•	Transport
+•	Énergie
+•	Services
+•	Restauration
+•	Mode
+•	Autres
+________________________________________
+Section « Comment ça marche ? »
+Présenter 5 étapes :
+1.	Préparer son projet
+2.	Soumettre sa candidature
+3.	Recevoir son numéro de dossier
+4.	Étude de la candidature
+5.	Notification du candidat
+________________________________________
+CTA
+Créer une section :
+« Vous avez un projet ? »
+Bouton :
+« Soumettre mon projet »
+________________________________________
+7. PAGE « À PROPOS »
+Créer une présentation détaillée du programme.
+Sections :
+•	Notre mission
+•	Notre vision
+•	Nos objectifs
+•	Notre approche
+•	Notre impact
+•	Nos domaines d’intervention
+________________________________________
+8. PAGE « PROGRAMME »
+Présenter :
+•	objectif du programme ;
+•	types de projets recherchés ;
+•	types de candidats ;
+•	domaines prioritaires ;
+•	fonctionnement ;
+•	critères généraux.
+Créer plusieurs cartes avec icônes.
+________________________________________
+9. PAGE « CRITÈRES »
+Présenter clairement :
+Qui peut candidater ?
+•	entrepreneurs ;
+•	porteurs de projets ;
+•	PME ;
+•	startups ;
+•	artisans ;
+•	agriculteurs ;
+•	associations ou autres structures si le programme les autorise.
+Ajouter un avertissement :
+« Le respect des critères ne garantit pas automatiquement l’obtention d’un financement. Chaque candidature fait l’objet d’une étude. »
+________________________________________
+10. FORMULAIRE DE CANDIDATURE
+Créer un formulaire multi-étapes moderne.
+Afficher une barre de progression :
+Étape 1 → Étape 2 → Étape 3 → Étape 4 → Étape 5
+Ne pas perdre les données lorsque l'utilisateur passe d'une étape à l'autre.
+Utiliser JavaScript pour la navigation entre les étapes mais effectuer toutes les validations importantes côté PHP.
+________________________________________
+11. ÉTAPE 1 — INFORMATIONS PERSONNELLES
+Champs :
+•	Nom
+•	Prénom
+•	Date de naissance
+•	Sexe
+•	Nationalité
+•	Pays
+•	Région
+•	Ville
+•	Quartier
+•	Adresse
+•	Téléphone
+•	Numéro WhatsApp
+•	Email
+•	Situation matrimoniale si réellement nécessaire
+•	Situation professionnelle
+•	Niveau d'études
+Champs obligatoires clairement indiqués.
+Ne demander que les données réellement nécessaires au traitement de la candidature.
+________________________________________
+12. ÉTAPE 2 — INFORMATIONS SUR L’ACTIVITÉ
+Question :
+« Avez-vous déjà une activité ? »
+Options :
+•	Oui
+•	Non
+Si Oui :
+•	Nom de l'entreprise
+•	Date de création
+•	Secteur
+•	Description de l'activité
+•	Localisation
+•	Nombre d'employés
+•	Chiffre d'affaires approximatif
+•	Numéro d'immatriculation si applicable
+•	Expérience du promoteur
+Si Non :
+Afficher une section dédiée au projet à créer.
+________________________________________
+13. ÉTAPE 3 — INFORMATIONS SUR LE PROJET
+Champs :
+•	Nom du projet
+•	Secteur d'activité
+•	Sous-secteur
+•	Pays
+•	Région
+•	Ville
+•	Localisation
+•	Description détaillée
+•	Objectif principal
+•	Problème auquel le projet répond
+•	Solution proposée
+•	Clientèle cible
+•	Principaux concurrents
+•	Avantage concurrentiel
+•	Nombre actuel d'employés
+•	Nombre d'emplois à créer
+•	Stade du projet
+Stade :
+•	Idée
+•	En préparation
+•	Déjà lancé
+•	En développement
+•	Entreprise existante
+________________________________________
+14. ÉTAPE 4 — INFORMATIONS FINANCIÈRES
+Champs :
+•	Montant demandé
+•	Devise
+•	Apport personnel
+•	Coût total du projet
+________________________________________
+15. UTILISATION DU FINANCEMENT
+Créer des cases à cocher :
+•	Achat de matériel
+•	Achat de marchandises
+•	Construction
+•	Aménagement
+•	Agriculture
+•	Élevage
+•	Transport
+•	Recrutement
+•	Marketing
+•	Technologie
+•	Formation
+•	Autre
+Ajouter :
+« Expliquez précisément comment le financement demandé sera utilisé. »
+________________________________________
+17. CONSENTEMENT
+Avant validation :
+☐ Je certifie que les informations fournies sont exactes.
+
+☐ J'accepte la politique de confidentialité.
+
+☐ J'autorise le traitement de mes données dans le cadre de l'étude de ma candidature.
+Les cases obligatoires doivent être contrôlées côté serveur.
+________________________________________
+19. PAGE DE CONFIRMATION
+Après soumission :
+Afficher :
+« Votre candidature a bien été enregistrée. »
+Afficher clairement :
+NUMÉRO DE DOSSIER
+
+DG-2026-000001
+Message :
+« Conservez précieusement ce numéro. Il pourra être utilisé pour suivre votre candidature. »
+Boutons :
+•	Suivre ma candidature
+•	Contacter l'équipe sur WhatsApp
+•	Retour à l'accueil
+________________________________________
+20. WHATSAPP
+Créer un bouton WhatsApp configurable depuis l'administration.
+Le numéro WhatsApp ne doit jamais être codé en dur dans plusieurs fichiers.
+Stocker le numéro dans la table settings.
+Créer automatiquement un message :
+« Bonjour, je viens de soumettre une candidature au programme. Mon numéro de dossier est DG-2026-000001. Je souhaite obtenir des informations concernant la suite de ma candidature. »
+Encoder correctement le message dans l'URL WhatsApp.
+IMPORTANT :
+WhatsApp doit être présenté comme un moyen de communication ou d'assistance et non comme une preuve automatique d'obtention du financement.
+________________________________________
+21. PAGE « SUIVRE MA CANDIDATURE »
+Créer un formulaire :
+•	numéro de dossier ;
+•	téléphone ou email.
+Après validation, afficher uniquement les informations nécessaires.
+Exemple :
+Dossier : DG-2026-000001
+
+Statut :
+EN ÉTUDE
+
+Date de soumission :
+06 octobre 2026
+
+Dernière mise à jour :
+08 octobre 2026
+Afficher une timeline :
+✓ Candidature reçue
+✓ Vérification administrative
+● Étude du projet
+○ Décision
+○ Accompagnement
+Ne jamais exposer les notes internes de l'administration.
+________________________________________
+22. STATUTS DES CANDIDATURES
+Prévoir :
+•	Nouvelle
+•	Reçue
+•	Vérification administrative
+•	Informations complémentaires
+•	En étude
+•	Présélectionnée
+•	Approuvée
+•	Refusée
+•	Accompagnement en cours
+•	Clôturée
+Les statuts doivent être administrables.
+________________________________________
+23. PAGE TÉMOIGNAGES
+Créer une page moderne.
+Chaque témoignage peut contenir :
+•	photo ou initail du nom et prenom si photo indisponible;
+•	Nom et prénom ;
+•	Pays
+•	ville ;
+•	activité ;
+•	texte ;
+•	date.
+Les témoignages doivent être gérés depuis l'administration.
+________________________________________
+24. PAGE FAQ
+Créer une FAQ avec accordéons Bootstrap.
+Questions :
+•	Qui peut candidater ?
+•	Quels projets sont concernés ?
+•	Combien peut-on demander ?
+•	Comment les dossiers sont-ils étudiés ?
+•	Combien de temps dure l'étude ?
+•	Comment suivre sa candidature ?
+•	Comment serai-je contacté ?
+•	Le dépôt d'une candidature est-il payant ?
+•	Puis-je modifier mon dossier ?
+________________________________________
+25. PAGE CONTACT
+Afficher :
+•	formulaire de contact ;
+•	email officiel configurable ;
+•	téléphone configurable ;
+•	WhatsApp configurable ;
+•	réseaux sociaux configurables ;
+________________________________________
+26. ESPACE ADMIN
+Créer :
+/admin/
+Pages :
+/admin/login.php
+/admin/logout.php
+Et toutes les autres pages/fichiers necessaires
+________________________________________
+27. AUTHENTIFICATION ADMIN
+Créer une connexion sécurisée.
+Champs :
+•	email (fondationdangote@gmail.com);
+•	mot de passe(12141618120@Dangote).
+Utiliser :
+password_hash()
+password_verify()
+Ne jamais stocker les mots de passe en clair.
+Créer des sessions sécurisées.
+Ajouter :
+•	protection CSRF ;
+•	limitation des tentatives ;
+•	logout ;
+•	timeout de session ;
+________________________________________
+29. DASHBOARD ADMIN
+Créer un tableau de bord professionnel.
+Afficher :
+Candidatures totales
+Nouvelles candidatures
+Dossiers en étude
+Dossiers présélectionnés
+Dossiers approuvés
+Dossiers refusés
+Ajouter graphiques :
+•	candidatures par mois ;
+•	candidatures par secteur ;
+•	candidatures par pays/région ;
+•	montants demandés ;
+•	montants approuvés.
+Utiliser Chart.js si nécessaire.
+________________________________________
+30. GESTION DES CANDIDATURES
+Créer une table avec :
+•	numéro ;
+•	nom ;
+•	téléphone ;
+•	projet ;
+•	secteur ;
+•	montant demandé ;
+•	statut ;
+•	date ;
+•	dernière modification.
+Ajouter :
+•	recherche ;
+•	pagination ;
+•	filtre par statut ;
+•	filtre par secteur ;
+•	filtre par date ;
+•	tri ;
+•	export CSV si possible.
+________________________________________
+31. FICHE DÉTAILLÉE D'UNE CANDIDATURE
+Afficher :
+Informations personnelles
+Toutes les informations du candidat.
+Activité
+Informations sur son entreprise ou activité.
+Projet
+Description complète.
+Financement
+Montants et budget.
+Statut
+Dropdown pour changer le statut.
+Notes internes
+Zone privée réservée aux administrateurs.
+Historique
+Afficher :
+•	création ;
+•	modification ;
+•	changement de statut ;
+•	administrateur ayant effectué l'action ;
+•	date et heure.
+________________________________________
+34. GESTION DES TÉMOIGNAGES
+L'administration doit pouvoir :
+•	ajouter ;
+•	modifier ;
+•	supprimer ;
+•	activer ;
+•	désactiver.
+________________________________________
+36. GESTION DES PARAMÈTRES
+Créer une page permettant de modifier :
+•	email ;
+•	téléphone ;
+•	WhatsApp ;
+•	adresse ;
+•	réseaux sociaux ;
+Ne pas obliger l'administrateur à modifier le code pour changer ces éléments.
+________________________________________
+37. BASE DE DONNÉES
+Créer une base MySQL structurée.
+________________________________________
+39. SÉCURITÉ
+La sécurité est obligatoire.
+Utiliser :
+•	PDO ;
+•	prepared statements ;
+•	CSRF tokens ;
+•	XSS protection ;
+•	validation serveur ;
+•	validation client ;
+•	password hashing ;
+•	sessions sécurisées ;
+•	contrôle des permissions ;
+•	protection contre SQL Injection ;
+________________________________________
+40. RGPD / PROTECTION DES DONNÉES
+Prévoir :
+•	politique de confidentialité ;
+•	Confidentialite des donnees
+Ne pas collecter une information simplement parce qu'elle est possible à collecter.
+Chaque donnée personnelle doit avoir une utilité précise.
+________________________________________
+42. RESPONSIVE DESIGN
+Le site doit être parfaitement utilisable sur :
+•	Smartphone (mobile-first) ;
+•	tablette ;
+•	ordinateur portable ;
+•	desktop.
+Priorité au mobile.
+Le formulaire de candidature doit être particulièrement optimisé pour smartphone.
+________________________________________
+45. CONFIGURATION HOSTINGER
+Créer un fichier de configuration permettant de renseigner :
+DB_HOST
+DB_NAME
+DB_USER
+DB_PASSWORD
+Ne jamais mettre les identifiants directement dans plusieurs fichiers.
+Prévoir une configuration adaptée à Hostinger.
+________________________________________
+52. OBJECTIF FINAL
+Le résultat final doit être une plateforme professionnelle complète et réellement fonctionnelle.
+Le visiteur doit pouvoir :
+Accueil
+   ↓
+Découvrir le programme
+   ↓
+Vérifier les critères
+   ↓
+Soumettre son projet
+   ↓
+Remplir le formulaire
+   ↓
+Recevoir son numéro de dossier
+   ↓
+Contacter l'équipe sur WhatsApp
+   ↓
+Suivre sa candidature
+L'administrateur doit pouvoir :
+Connexion
+   ↓
+Dashboard
+   ↓
+Voir les candidatures
+   ↓
+Filtrer / rechercher
+   ↓
+Ouvrir un dossier
+   ↓
+Consulter projet + finances 
+   ↓
+Modifier le statut
+   ↓
+Consulter l'historique
+   ↓
+Gérer les contenus
+   ↓
+Voir les statistiques
+Le projet doit être conçu comme une véritable application web et non comme une simple page vitrine.
