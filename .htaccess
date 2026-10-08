@@ -1,0 +1,10 @@
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule (^|/)\.(git|env|agents|cache)(/|$) - [F,L]
+</IfModule>
+
+<FilesMatch "^(?:README\.md|\.replit|\.gitignore)$">
+    Require all denied
+</FilesMatch>

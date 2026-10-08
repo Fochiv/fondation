@@ -28,9 +28,9 @@ require __DIR__ . '/includes/header.php';
 <section class="page-hero page-hero-navy"><div class="container page-hero-content"><span class="eyebrow eyebrow-light">FAQ</span><h1><?= $en ? 'Questions, answered clearly.' : 'Vos questions, nos réponses.' ?></h1><p><?= $en ? 'Find useful information about eligibility, submitting a project and tracking your application.' : 'Retrouvez les informations utiles sur l’éligibilité, la soumission d’un projet et le suivi de votre candidature.' ?></p></div></section>
 <section class="section"><div class="container faq-layout">
     <aside class="faq-aside"><span class="eyebrow"><?= $en ? 'NEED HELP?' : 'BESOIN D’AIDE ?' ?></span><h2><?= $en ? 'We’re here to help.' : 'Nous sommes à votre écoute.' ?></h2><p><?= $en ? 'If you cannot find the answer you need, send the team a message.' : 'Si vous ne trouvez pas la réponse à votre question, envoyez un message à l’équipe.' ?></p><a class="text-link" href="contact.php"><?= e(t('contact_button')) ?> <i class="bi bi-arrow-right"></i></a></aside>
-    <div class="faq-list">
-        <?php foreach ($questions as $index => [$question, $answer]): ?>
-            <details class="faq-item" <?= $index === 0 ? 'open' : '' ?>><summary><span><?= e($question) ?></span><i class="bi bi-plus-lg"></i></summary><div class="faq-answer"><p><?= e($answer) ?></p></div></details>
+    <div class="faq-list accordion" id="faqAccordion">
+        <?php foreach ($questions as $index => [$question, $answer]): $collapseId = 'faqAnswer' . $index; ?>
+            <article class="accordion-item faq-item"><h2 class="accordion-header"><button class="accordion-button <?= $index === 0 ? '' : 'collapsed' ?>" type="button" data-bs-toggle="collapse" data-bs-target="#<?= e($collapseId) ?>" aria-expanded="<?= $index === 0 ? 'true' : 'false' ?>" aria-controls="<?= e($collapseId) ?>"><?= e($question) ?></button></h2><div id="<?= e($collapseId) ?>" class="accordion-collapse collapse <?= $index === 0 ? 'show' : '' ?>" data-bs-parent="#faqAccordion"><div class="accordion-body faq-answer"><p><?= e($answer) ?></p></div></div></article>
         <?php endforeach; ?>
     </div>
 </div></section>

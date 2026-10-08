@@ -41,6 +41,7 @@
 <?php $chatUrl = whatsapp_url(); if ($chatUrl): ?>
     <a class="whatsapp-float" href="<?= e($chatUrl) ?>" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
 <?php endif; ?>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 <script src="assets/js/site.js" defer></script>
 </body>
 </html>

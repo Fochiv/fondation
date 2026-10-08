@@ -1,8 +1,17 @@
 <?php
 declare(strict_types=1);
 
+$localConfigPath = dirname(__DIR__) . '/config/local.php';
+$localConfig = is_file($localConfigPath) ? require $localConfigPath : [];
+$GLOBALS['appConfig'] = is_array($localConfig) ? $localConfig : [];
+
 ini_set('display_errors', '0');
 error_reporting(E_ALL);
+header('X-Content-Type-Options: nosniff');
+header('Referrer-Policy: strict-origin-when-cross-origin');
+if (getenv('REPLIT_DEV_DOMAIN') === false) {
+    header('X-Frame-Options: SAMEORIGIN');
+}
 
 $https = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
     || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https');
@@ -27,6 +36,14 @@ const SITE_NAME = 'Aliko Dangote Foundation';
 function e(mixed $value): string
 {
     return htmlspecialchars((string)$value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+}
+
+function app_config(string $key, string $default = ''): string
+{
+    $local = $GLOBALS['appConfig'][$key] ?? null;
+    if (is_string($local) && $local !== '') return $local;
+    $environment = getenv($key);
+    return $environment !== false && $environment !== '' ? (string)$environment : $default;
 }
 
 function t(string $key): string
@@ -65,7 +82,7 @@ function t(string $key): string
 
 function db_configured(): bool
 {
-    return (bool)(getenv('DB_HOST') && getenv('DB_NAME') && getenv('DB_USER'));
+    return app_config('DB_HOST') !== '' && app_config('DB_NAME') !== '' && app_config('DB_USER') !== '';
 }
 
 function db(): PDO
@@ -77,12 +94,12 @@ function db(): PDO
     if (!db_configured()) {
         throw new RuntimeException('MySQL is not configured.');
     }
-    $host = getenv('DB_HOST');
-    $port = getenv('DB_PORT') ?: '3306';
-    $name = getenv('DB_NAME');
-    $charset = getenv('DB_CHARSET') ?: 'utf8mb4';
+    $host = app_config('DB_HOST');
+    $port = app_config('DB_PORT', '3306');
+    $name = app_config('DB_NAME');
+    $charset = app_config('DB_CHARSET', 'utf8mb4');
     $dsn = "mysql:host={$host};port={$port};dbname={$name};charset={$charset}";
-    $pdo = new PDO($dsn, getenv('DB_USER'), getenv('DB_PASSWORD') ?: '', [
+    $pdo = new PDO($dsn, app_config('DB_USER'), app_config('DB_PASSWORD'), [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         PDO::ATTR_EMULATE_PREPARES => false,
@@ -92,14 +109,18 @@ function db(): PDO
 
 function setting(string $key, string $default = ''): string
 {
-    try {
-        $query = db()->prepare('SELECT setting_value FROM settings WHERE setting_key = ? LIMIT 1');
-        $query->execute([$key]);
-        $value = $query->fetchColumn();
-        return $value === false ? $default : (string)$value;
-    } catch (Throwable) {
-        return $default;
+    static $values = null;
+    if ($values === null) {
+        $values = [];
+        try {
+            foreach (db()->query('SELECT setting_key,setting_value FROM settings') as $row) {
+                $values[(string)$row['setting_key']] = (string)$row['setting_value'];
+            }
+        } catch (Throwable) {
+            $values = [];
+        }
     }
+    return $values[$key] ?? $default;
 }
 
 function whatsapp_url(string $message = ''): ?string
@@ -205,6 +226,8 @@ function require_admin(): void
         redirect('login.php');
     }
     $_SESSION['admin_last_activity'] = time();
+    header('Cache-Control: no-store, no-cache, must-revalidate, private');
+    header('Pragma: no-cache');
 }
 
 function setting_defaults(): array

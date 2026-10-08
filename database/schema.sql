@@ -6,6 +6,13 @@ CREATE TABLE IF NOT EXISTS admins (
   last_login_at TIMESTAMP NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+CREATE TABLE IF NOT EXISTS admin_login_attempts (
+  subject_hash CHAR(64) NOT NULL PRIMARY KEY,
+  attempt_count TINYINT UNSIGNED NOT NULL DEFAULT 0,
+  last_attempt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  INDEX idx_login_attempt_age (last_attempt)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 CREATE TABLE IF NOT EXISTS applications (
   id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   reference_no VARCHAR(32) NULL UNIQUE,

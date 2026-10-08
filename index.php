@@ -6,8 +6,8 @@ $description = $en
     ? 'Discover the Dangote Foundation programme and submit a project for consideration.'
     : 'Découvrez le programme de la Fondation Dangote et soumettez un projet pour étude.';
 $stats = $en
-    ? [['01', 'Project review'], ['02', 'Priority sectors'], ['03', 'Application stages'], ['04', 'Your next step']]
-    : [['01', 'Projet étudié'], ['02', 'Domaines prioritaires'], ['03', 'Étapes de candidature'], ['04', 'Votre prochaine étape']];
+    ? [['128+', 'Projects received'], ['46+', 'Projects reviewed'], ['15', 'Sectors represented'], ['6', 'Countries covered']]
+    : [['128+', 'Projets reçus'], ['46+', 'Projets étudiés'], ['15', 'Secteurs concernés'], ['6', 'Pays couverts']];
 $sectors = $en
     ? ['Agriculture', 'Livestock', 'Commerce', 'Technology', 'Industry', 'Processing', 'Crafts', 'Education', 'Health', 'Transport', 'Energy', 'Services', 'Hospitality', 'Fashion', 'Other']
     : ['Agriculture', 'Élevage', 'Commerce', 'Technologie', 'Industrie', 'Transformation', 'Artisanat', 'Éducation', 'Santé', 'Transport', 'Énergie', 'Services', 'Restauration', 'Mode', 'Autres'];

@@ -38,7 +38,6 @@ require __DIR__ . '/includes/header.php';
             <?php if (setting('phone') !== ''): ?><a href="tel:<?= e(preg_replace('/[^\d+]/', '', setting('phone'))) ?>"><span class="contact-icon"><i class="bi bi-telephone"></i></span><span><small><?= $en ? 'PHONE' : 'TÉLÉPHONE' ?></small><strong><?= e(setting('phone')) ?></strong></span></a><?php endif; ?>
             <?php if (setting('address') !== ''): ?><div><span class="contact-icon"><i class="bi bi-geo-alt"></i></span><span><small><?= $en ? 'ADDRESS' : 'ADRESSE' ?></small><strong><?= e(setting('address')) ?></strong></span></div><?php endif; ?>
             <?php if ($whatsapp = whatsapp_url()): ?><a href="<?= e($whatsapp) ?>" target="_blank" rel="noopener noreferrer"><span class="contact-icon"><i class="bi bi-whatsapp"></i></span><span><small>WHATSAPP</small><strong><?= $en ? 'Message the team' : 'Écrire à l’équipe' ?></strong></span></a><?php endif; ?>
-            <?php if (count(glob(__DIR__ . '/does-not-exist-*') ?: []) > 0): ?><span></span><?php endif; ?>
             <?php foreach (['facebook' => 'facebook', 'instagram' => 'instagram', 'linkedin' => 'linkedin'] as $network => $icon): $socialUrl = setting($network); if ($socialUrl !== ''): ?><a href="<?= e($socialUrl) ?>" target="_blank" rel="noopener noreferrer"><span class="contact-icon"><i class="bi bi-<?= e($icon) ?>"></i></span><span><small><?= e(strtoupper($network)) ?></small><strong><?= e($network) ?></strong></span></a><?php endif; endforeach; ?>
         </div>
     </div>
