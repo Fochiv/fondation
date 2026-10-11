@@ -21,6 +21,64 @@
         });
     }
 
+    const sectorToggle = document.querySelector(".sector-toggle");
+    const sectorList = sectorToggle && document.getElementById(sectorToggle.getAttribute("aria-controls"));
+    if (sectorToggle && sectorList) {
+        const showLabel = sectorToggle.dataset.showLabel || sectorToggle.textContent.trim();
+        const hideLabel = sectorToggle.dataset.hideLabel || showLabel;
+        sectorToggle.addEventListener("click", () => {
+            const open = sectorToggle.getAttribute("aria-expanded") !== "true";
+            sectorToggle.setAttribute("aria-expanded", String(open));
+            sectorList.hidden = !open;
+            const label = sectorToggle.querySelector("span");
+            if (label) label.textContent = open ? hideLabel : showLabel;
+            sectorToggle.querySelector("i")?.classList.toggle("bi-chevron-up", open);
+            sectorToggle.querySelector("i")?.classList.toggle("bi-chevron-down", !open);
+        });
+    }
+
+    const backToTop = document.querySelector(".back-to-top");
+    if (backToTop) {
+        const syncBackToTop = () => backToTop.classList.toggle("is-visible", window.scrollY > 420);
+        window.addEventListener("scroll", syncBackToTop, { passive: true });
+        syncBackToTop();
+    }
+
+    const statValues = [...document.querySelectorAll(".stat-value[data-count]")];
+    if (statValues.length) {
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const animateStat = (element) => {
+            const target = Number(element.dataset.count);
+            const suffix = element.dataset.suffix || "";
+            if (!Number.isFinite(target) || prefersReducedMotion) {
+                element.textContent = `${target}${suffix}`;
+                return;
+            }
+            const duration = 1200;
+            const started = performance.now();
+            const frame = (now) => {
+                const progress = Math.min((now - started) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                element.textContent = `${Math.round(target * eased)}${suffix}`;
+                if (progress < 1) window.requestAnimationFrame(frame);
+            };
+            window.requestAnimationFrame(frame);
+        };
+        if ("IntersectionObserver" in window && !prefersReducedMotion) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        animateStat(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.55 });
+            statValues.forEach((element) => observer.observe(element));
+        } else {
+            statValues.forEach(animateStat);
+        }
+    }
+
     const adminMenuButton = document.querySelector(".admin-menu-toggle");
     const adminSidebar = document.querySelector(".admin-sidebar");
     if (adminMenuButton && adminSidebar) {
@@ -30,7 +88,7 @@
             adminSidebar.classList.toggle("is-open", open);
         });
         document.addEventListener("click", (event) => {
-            if (window.innerWidth <= 860 && !adminSidebar.contains(event.target) && !adminMenuButton.contains(event.target)) {
+            if (window.innerWidth <= 1020 && !adminSidebar.contains(event.target) && !adminMenuButton.contains(event.target)) {
                 adminMenuButton.setAttribute("aria-expanded", "false");
                 adminSidebar.classList.remove("is-open");
             }

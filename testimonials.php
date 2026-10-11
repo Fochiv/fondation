@@ -2,13 +2,7 @@
 require __DIR__ . '/includes/bootstrap.php';
 $en = $lang === 'en';
 $title = $en ? 'Stories and testimonials' : 'Témoignages';
-$testimonials = [];
-try {
-    $query = db()->query('SELECT full_name, country, city, activity, quote, photo_url, published_at FROM testimonials WHERE is_active = 1 ORDER BY published_at DESC, id DESC');
-    $testimonials = $query->fetchAll();
-} catch (Throwable) {
-    // Public browsing remains available while MySQL is being configured.
-}
+$testimonials = require __DIR__ . '/includes/public-testimonials.php';
 require __DIR__ . '/includes/header.php';
 ?>
 <section class="page-hero page-hero-navy"><div class="container page-hero-content"><span class="eyebrow eyebrow-light"><?= $en ? 'COMMUNITY STORIES' : 'PARCOURS ET INITIATIVES' ?></span><h1><?= $en ? 'Experiences from the community.' : 'Les expériences de notre communauté.' ?></h1><p><?= $en ? 'Read stories shared by programme participants.' : 'Découvrez les témoignages publiés par les participants au programme.' ?></p></div></section>

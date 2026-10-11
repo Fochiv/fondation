@@ -4,13 +4,19 @@
         <div class="footer-brand">
             <a href="index.php" class="footer-logo"><img src="logo_fondation.png" alt="<?= e(SITE_NAME) ?>"></a>
             <p><?= e(t('footer_intro')) ?></p>
-            <div class="footer-social">
-                <?php foreach (['facebook' => 'facebook', 'instagram' => 'instagram', 'linkedin' => 'linkedin'] as $key => $icon):
-                    $url = setting($key);
-                    if ($url !== ''): ?>
-                        <a href="<?= e($url) ?>" aria-label="<?= e(ucfirst($key)) ?>" target="_blank" rel="noopener noreferrer"><i class="bi bi-<?= e($icon) ?>"></i></a>
-                    <?php endif;
-                endforeach; ?>
+            <div class="footer-social" aria-label="<?= $lang === 'en' ? 'Follow Dangote Group' : 'Suivre Dangote Group' ?>">
+                <?php
+                $socialLinks = [
+                    'facebook' => ['facebook', 'https://web.facebook.com/dangotegroup'],
+                    'X' => ['twitter-x', 'https://twitter.com/DangoteGroup'],
+                    'instagram' => ['instagram', 'https://www.instagram.com/dangotegroup/'],
+                    'youtube' => ['youtube', 'https://www.youtube.com/dangote'],
+                    'linkedin' => ['linkedin', 'https://ng.linkedin.com/company/dangotegroup'],
+                ];
+                foreach ($socialLinks as $key => [$icon, $defaultUrl]):
+                    $url = setting(strtolower($key)) ?: $defaultUrl; ?>
+                    <a href="<?= e($url) ?>" aria-label="<?= e($key === 'X' ? 'X' : ucfirst($key)) ?>" target="_blank" rel="noopener noreferrer"><i class="bi bi-<?= e($icon) ?>" aria-hidden="true"></i></a>
+                <?php endforeach; ?>
             </div>
         </div>
         <div>
@@ -35,9 +41,9 @@
     <div class="footer-bottom">
         <span>© <?= date('Y') ?> <?= e(SITE_NAME) ?>. <?= e(t('rights')) ?></span>
         <a href="privacy.php"><?= e(t('legal')) ?></a>
-        <a href="admin/login.php">Administration</a>
     </div>
 </footer>
+<a class="back-to-top" href="#top" aria-label="<?= $lang === 'en' ? 'Back to top' : 'Remonter en haut de page' ?>" title="<?= $lang === 'en' ? 'Back to top' : 'Remonter en haut de page' ?>"><i class="bi bi-arrow-up" aria-hidden="true"></i></a>
 <?php $chatUrl = whatsapp_url(); if ($chatUrl): ?>
     <a class="whatsapp-float" href="<?= e($chatUrl) ?>" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
 <?php endif; ?>

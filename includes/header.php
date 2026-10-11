@@ -25,26 +25,28 @@ $currentFile = basename($_SERVER['SCRIPT_NAME'] ?? '');
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/site.css">
 </head>
-<body>
+<body id="top">
 <a class="skip-link" href="#main"><?= $lang === 'en' ? 'Skip to content' : 'Aller au contenu' ?></a>
 <header class="site-header">
     <div class="header-inner">
         <a class="brand" href="index.php" aria-label="<?= e(SITE_NAME) ?> — <?= e(t('home')) ?>">
             <img src="logo_fondation.png" alt="<?= e(SITE_NAME) ?>">
         </a>
-        <button class="menu-toggle" type="button" aria-label="<?= e(t('menu')) ?>" aria-expanded="false" aria-controls="primary-nav">
-            <span></span><span></span><span></span>
-        </button>
         <nav class="primary-nav" id="primary-nav" aria-label="<?= $lang === 'en' ? 'Main navigation' : 'Navigation principale' ?>">
             <?php foreach ($navigation as [$href, $label]): ?>
                 <a href="<?= e($href) ?>" class="<?= $currentFile === $href ? 'is-active' : '' ?>"><?= e($label) ?></a>
             <?php endforeach; ?>
             <a class="nav-track" href="track.php"><i class="bi bi-search" aria-hidden="true"></i> <?= e(t('track')) ?></a>
             <a class="button button-red nav-apply" href="apply.php"><?= e(t('apply')) ?> <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+        </nav>
+        <div class="header-controls">
             <a class="language-switch" href="<?= e(current_page_url()) ?>" aria-label="<?= $lang === 'fr' ? 'Switch to English' : 'Passer en français' ?>">
                 <?= $lang === 'fr' ? 'EN' : 'FR' ?>
             </a>
-        </nav>
+            <button class="menu-toggle" type="button" aria-label="<?= e(t('menu')) ?>" aria-expanded="false" aria-controls="primary-nav">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
     </div>
 </header>
 <?php if (!db_configured() && !str_starts_with($currentFile, 'admin')): ?>
