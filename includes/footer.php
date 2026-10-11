@@ -38,10 +38,12 @@
             </ul>
         </div>
     </div>
-    <div class="footer-bottom">
-        <span>© <?= date('Y') ?> <?= e(SITE_NAME) ?>. <?= e(t('rights')) ?></span>
+    <nav class="footer-legal" aria-label="<?= $lang === 'en' ? 'Legal information' : 'Informations légales' ?>">
         <a href="privacy.php"><?= e(t('legal')) ?></a>
         <a href="terms.php"><?= e(t('terms')) ?></a>
+    </nav>
+    <div class="footer-bottom">
+        <span>© <?= date('Y') ?> <?= e(SITE_NAME) ?>. <?= e(t('rights')) ?></span>
     </div>
 </footer>
 <a class="back-to-top" href="#top" aria-label="<?= $lang === 'en' ? 'Back to top' : 'Remonter en haut de page' ?>" title="<?= $lang === 'en' ? 'Back to top' : 'Remonter en haut de page' ?>"><i class="bi bi-arrow-up" aria-hidden="true"></i></a>
