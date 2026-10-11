@@ -42,6 +42,7 @@ h3 { font-size: 1.24rem; }
 .eyebrow-light { color: rgba(255,255,255,.82); }
 .section { padding: 92px 0; }
 .section-soft { background: var(--soft); }
+.domain-section { color: #fff; background: #101b4e; }
 .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 36px; }
 .section-heading h2 { max-width: 740px; margin-top: 13px; }
 .section-heading-center { display: block; max-width: 740px; margin: 0 auto 44px; text-align: center; }
@@ -123,6 +124,8 @@ h3 { font-size: 1.24rem; }
 .intro-panel-foot { position: relative; display: flex; align-items: center; gap: 9px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,.19); color: rgba(255,255,255,.77); font-size: .76rem; }
 .intro-panel-foot span { width: 8px; height: 8px; border-radius: 50%; background: #ed2834; }
 .sector-toggle { flex: 0 0 auto; }
+.domain-section .sector-toggle { color: var(--navy); border-color: #fff; background: #fff; }
+.domain-section .sector-toggle:hover { color: var(--navy); background: #eef1ff; }
 .sector-reveal { display: flex; justify-content: center; }
 .sector-toggle i { transition: transform .2s; }
 .sector-toggle[aria-expanded="true"] i { transform: rotate(180deg); }
